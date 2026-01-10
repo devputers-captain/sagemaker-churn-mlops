@@ -62,20 +62,28 @@ Real-Time Endpoint
 
 ## 📁 Repository Structure
 
-```
-
+```text
 sagemaker-churn-mlops/
 ├── src/
-│   ├── preprocess.py      # Data preprocessing
-│   ├── train.py           # Model training
-│   ├── evaluate.py        # Model evaluation
-│   └── inference.py       # Inference interface
-├── pipeline.py/ipynd      # SageMaker Pipeline definition
+│   ├── customer_data.csv       # Sample input dataset
+│   ├── preprocessing.py        # Data preprocessing logic
+│   ├── training.py             # Model training script
+│   ├── evaluation.py           # Model evaluation script
+│   └── inference.py            # Inference interface for deployment
+├── pipeline.ipynb              # SageMaker Pipeline execution notebook
+├── pipeline-visual.md          # Pipeline architecture visualization
+├── deploy-with-inference.py    # Model deployment script
+├── deploy-model-readme.md      # Deployment instructions
+├── tests/
+│   └── test-predictions.py     # Endpoint inference tests
+├── utils/
+│   ├── check-endpoint-logs.py  # CloudWatch log inspection
+│   ├── cleanup-sagemaker.py    # Resource cleanup utility
+│   └── lambda-function.py      # Optional serverless integration
 ├── requirements.txt
-└── README.md
-
-````
-
+├── README.md
+└── .gitignore
+```
 ---
 
 ## ⚙️ Pipeline Steps Explained
@@ -130,15 +138,8 @@ cd sagemaker-churn-mlops
 
 ### Step 3️⃣ Run the Pipeline
 
-```python
-from pipeline import pipeline
-import sagemaker
-
-role = sagemaker.get_execution_role()
-
-pipeline.upsert(role_arn=role)
-execution = pipeline.start()
-```
+- Open and run the `pipeline.ipynb` notebook.
+- The notebook loads the pipeline definition and executes it, creating the end-to-end SageMaker Pipeline.
 
 ---
 
@@ -183,10 +184,7 @@ Response:
 ```
 ---
 
-## 📌 Future Enhancements
+## Model Deployment
 
-* Add SageMaker Model Monitor for drift detection
-* Automate retraining
-* CI/CD integration using GitHub Actions or CodePipeline
-* Add SHAP-based model explainability
+For deploying the trained model as a real-time endpoint, refer to the `deploy-model-readme.md` file.
 

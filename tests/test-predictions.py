@@ -4,10 +4,10 @@ TEST SCRIPT - test_endpoint.py
 ============================================================================
 """
 
-from sagemaker.sklearn import SKLearnPredictor
 from sagemaker import Session
-from sagemaker.serializers import JSONSerializer
 from sagemaker.deserializers import JSONDeserializer
+from sagemaker.serializers import JSONSerializer
+from sagemaker.sklearn import SKLearnPredictor
 
 ENDPOINT_NAME = "churn-prediction-endpoint-v2"
 

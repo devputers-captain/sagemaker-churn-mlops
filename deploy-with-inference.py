@@ -110,7 +110,7 @@ print("✓ Deployment complete!")
 
 # Step 6: Test the endpoint
 print("\n[6/6] Testing endpoint using...")
-print("\n python tests/test-predict.py")
+print("\n python tests/test-predictions.py")
 
 print("\n" + "="*70)
 print("✅ SUCCESS!")
